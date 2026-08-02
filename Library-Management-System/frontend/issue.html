@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Issue & Return Books</title>
+
+    <link rel="stylesheet" href="css/issue.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-book"></i>
+
+            <h2>LibraryMS</h2>
+
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="books.html">
+                    <i class="fa-solid fa-book"></i>
+                    Books
+                </a>
+            </li>
+
+            <li>
+                <a href="students.html">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    Students
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="issue.html">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                    Issue & Return
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    <i class="fa-solid fa-circle-info"></i>
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    <i class="fa-solid fa-envelope"></i>
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="main-content">
+
+        <h1>Issue & Return Books</h1>
+
+        <p class="subtitle">
+            Issue books to students and manage returns.
+        </p>
+
+        <!-- Form -->
+
+        <section class="issue-card">
+
+            <h2>Issue Book</h2>
+
+            <form id="issueForm">
+
+                <div class="row">
+
+                    <select id="student">
+
+                        <option value="">
+                            Select Student
+                        </option>
+
+                    </select>
+
+                    <select id="book">
+
+                        <option value="">
+                            Select Book
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="row">
+
+                    <input
+                        type="date"
+                        id="issueDate">
+
+                    <input
+                        type="date"
+                        id="returnDate">
+
+                </div>
+
+                <button type="submit">
+
+                    <i class="fa-solid fa-book-open"></i>
+
+                    Issue Book
+
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- Search -->
+
+        <section class="search-box">
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Search student or book...">
+
+        </section>
+
+        <!-- Table -->
+
+        <section class="table-card">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Student</th>
+
+                    <th>Book</th>
+
+                    <th>Issue Date</th>
+
+                    <th>Return Date</th>
+
+                    <th>Status</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="issueTable">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="js/issue.js"></script>
+
+</body>
+
+</html>
