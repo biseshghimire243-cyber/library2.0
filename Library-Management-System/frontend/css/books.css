@@ -1,0 +1,32 @@
+/* Books Page CSS */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f4f7fb;color:#333}
+.container{display:flex;min-height:100vh}
+.sidebar{width:240px;background:#1e3a8a;color:#fff;padding:20px;position:fixed;top:0;bottom:0}
+.sidebar h2{margin-bottom:25px}
+.sidebar ul{list-style:none}
+.sidebar li{margin:10px 0}
+.sidebar a{color:#fff;text-decoration:none;display:block;padding:12px;border-radius:8px}
+.sidebar li.active a,.sidebar a:hover{background:#3157c7}
+.main-content{margin-left:240px;padding:30px;flex:1}
+header h1{font-size:32px;margin-bottom:8px}
+.form-section,.search-section,.table-section{background:#fff;border-radius:12px;padding:20px;margin-top:20px;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.input-group{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:15px}
+input{padding:12px;border:1px solid #ccc;border-radius:8px;font-size:15px}
+button{background:#1e3a8a;color:#fff;border:none;padding:12px 18px;border-radius:8px;cursor:pointer;font-weight:bold}
+button:hover{background:#16306f}
+#search{width:100%}
+table{width:100%;border-collapse:collapse}
+th,td{padding:12px;border-bottom:1px solid #e5e5e5;text-align:left}
+thead{background:#1e3a8a;color:#fff}
+tr:hover{background:#f8f9ff}
+.action-btn{padding:8px 12px;border-radius:6px;color:#fff;text-decoration:none;margin-right:6px}
+.edit{background:#f39c12}
+.delete{background:#e74c3c}
+@media(max-width:900px){
+.sidebar{position:relative;width:100%;height:auto}
+.main-content{margin-left:0}
+.container{display:block}
+.input-group{grid-template-columns:1fr}
+table{display:block;overflow-x:auto}
+}
