@@ -42,13 +42,16 @@ db.serialize(() => {
   `);
 
   db.run(`
-    CREATE TABLE IF NOT EXISTS students (
+CREATE TABLE IF NOT EXISTS students (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
       email TEXT,
-      phone TEXT
-    )
-  `);
+      phone TEXT,
+      address TEXT,
+      course TEXT,
+      semester TEXT
+)
+`);
 
   db.run(`
     CREATE TABLE IF NOT EXISTS issued_books (

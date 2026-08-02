@@ -274,3 +274,169 @@ table tbody tr:hover{
 .badge-inactive{
     background:#e74c3c;
 }
+
+
+/* ===========================
+        EMPTY TABLE
+=========================== */
+
+.no-data{
+    text-align:center;
+    color:#888;
+    padding:30px;
+    font-size:16px;
+}
+
+/* ===========================
+        CARD EFFECTS
+=========================== */
+
+.form-section,
+.search-section,
+.table-section{
+    transition:0.3s ease;
+}
+
+.form-section:hover,
+.search-section:hover,
+.table-section:hover{
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+/* ===========================
+        SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+    width:8px;
+    height:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#f1f1f1;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#1e3a8a;
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#16306d;
+}
+
+/* ===========================
+        INPUT PLACEHOLDER
+=========================== */
+
+input::placeholder{
+    color:#999;
+}
+
+/* ===========================
+        BUTTON ICON
+=========================== */
+
+button i{
+    margin-right:8px;
+}
+
+/* ===========================
+        TABLE ZEBRA
+=========================== */
+
+tbody tr:nth-child(even){
+    background:#fafafa;
+}
+
+tbody tr:nth-child(even):hover{
+    background:#eef3ff;
+}
+
+/* ===========================
+        RESPONSIVE
+=========================== */
+
+@media (max-width:1024px){
+
+    .sidebar{
+        width:220px;
+    }
+
+    .main-content{
+        margin-left:220px;
+        padding:25px;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .container{
+        display:block;
+    }
+
+    .sidebar{
+        position:relative;
+        width:100%;
+        height:auto;
+    }
+
+    .main-content{
+        margin-left:0;
+        padding:20px;
+    }
+
+    .row{
+        grid-template-columns:1fr;
+    }
+
+    table{
+        min-width:900px;
+    }
+
+}
+
+@media (max-width:480px){
+
+    header h1{
+        font-size:28px;
+    }
+
+    header p{
+        font-size:14px;
+    }
+
+    button{
+        width:100%;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+}
+
+/* ===========================
+        ANIMATION
+=========================== */
+
+.form-section,
+.search-section,
+.table-section{
+    animation:fadeIn .5s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}

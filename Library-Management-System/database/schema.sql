@@ -65,10 +65,36 @@ INSERT INTO books (title, author, category, quantity, available) VALUES
 -- Sample Students
 -- ==========================================
 
-INSERT INTO students (name, email, phone) VALUES
-('John Doe', 'john@example.com', '9800000001'),
-('Emma Watson', 'emma@example.com', '9800000002'),
-('David Miller', 'david@example.com', '9800000003');
+INSERT INTO students
+(name, email, phone, address, course, semester)
+VALUES
+
+(
+'John Doe',
+'john@example.com',
+'9800000001',
+'Kathmandu',
+'BSc CSIT',
+'5th Semester'
+),
+
+(
+'Emma Watson',
+'emma@example.com',
+'9800000002',
+'Pokhara',
+'BCA',
+'3rd Semester'
+),
+
+(
+'David Miller',
+'david@example.com',
+'9800000003',
+'Lalitpur',
+'BIM',
+'7th Semester'
+);
 
 -- ==========================================
 -- Sample Issue Record
