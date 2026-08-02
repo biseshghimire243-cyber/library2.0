@@ -65,6 +65,26 @@ CREATE TABLE IF NOT EXISTS students (
   `);
 });
 
+
+db.run(`
+CREATE TABLE IF NOT EXISTS contacts(
+
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+    name TEXT,
+
+    email TEXT,
+
+    subject TEXT,
+
+    message TEXT,
+
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+
+)
+`);
+
+
 // ======================
 // HOME
 // ======================
@@ -361,6 +381,78 @@ app.get("/dashboard", (req, res) => {
 });
 
 // ======================
+
+
+// ==============================
+// CONTACT API
+// ==============================
+
+app.post("/contact", (req, res) => {
+
+    const {
+
+        name,
+
+        email,
+
+        subject,
+
+        message
+
+    } = req.body;
+
+    db.run(
+
+        `
+
+        INSERT INTO contacts
+
+        (name,email,subject,message)
+
+        VALUES(?,?,?,?)
+
+        `,
+
+        [
+
+            name,
+
+            email,
+
+            subject,
+
+            message
+
+        ],
+
+        function(err){
+
+            if(err){
+
+                return res.status(500).json({
+
+                    success:false,
+
+                    message:err.message
+
+                });
+
+            }
+
+            res.json({
+
+                success:true,
+
+                message:"Message Sent Successfully."
+
+            });
+
+        }
+
+    );
+
+});
+
 
 app.listen(PORT, () => {
   console.log(`🚀 Server Running at http://localhost:${PORT}`);
