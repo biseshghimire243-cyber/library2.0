@@ -102,6 +102,52 @@ app.post("/books", (req, res) => {
   );
 });
 
+// ======================
+// UPDATE BOOK
+// ======================
+
+app.put("/books/:id", (req, res) => {
+
+    const { title, author, category, quantity } = req.body;
+
+    db.run(
+        `
+        UPDATE books
+        SET
+            title = ?,
+            author = ?,
+            category = ?,
+            quantity = ?,
+            available = ?
+        WHERE id = ?
+        `,
+        [
+            title,
+            author,
+            category,
+            quantity,
+            quantity,
+            req.params.id
+        ],
+        function (err) {
+
+            if (err) {
+                return res.status(500).json({
+                    success: false,
+                    message: err.message
+                });
+            }
+
+            res.json({
+                success: true,
+                message: "Book Updated Successfully"
+            });
+
+        }
+    );
+
+});
+
 // Delete book
 app.delete("/books/:id", (req, res) => {
   db.run(
