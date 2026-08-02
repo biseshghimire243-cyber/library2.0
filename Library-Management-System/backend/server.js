@@ -84,6 +84,38 @@ CREATE TABLE IF NOT EXISTS contacts(
 )
 `);
 
+db.run(`
+
+CREATE TABLE IF NOT EXISTS admin (
+
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+    username TEXT UNIQUE NOT NULL,
+
+    password TEXT NOT NULL
+
+)
+
+`);
+
+db.get("SELECT * FROM admin", (err, row) => {
+
+    if(!row){
+
+        db.run(
+
+            `INSERT INTO admin(username,password)
+
+             VALUES(?,?)`,
+
+            ["admin","admin123"]
+
+        );
+
+    }
+
+});
+
 
 // ======================
 // HOME
@@ -444,6 +476,60 @@ app.post("/contact", (req, res) => {
                 success:true,
 
                 message:"Message Sent Successfully."
+
+            });
+
+        }
+
+    );
+
+});
+
+// ======================================
+// ADMIN LOGIN
+// ======================================
+
+app.post("/login", (req, res) => {
+
+    const { username, password } = req.body;
+
+    db.get(
+
+        "SELECT * FROM admin WHERE username=? AND password=?",
+
+        [username, password],
+
+        (err, user) => {
+
+            if(err){
+
+                return res.status(500).json({
+
+                    success:false,
+
+                    message:err.message
+
+                });
+
+            }
+
+            if(!user){
+
+                return res.json({
+
+                    success:false,
+
+                    message:"Invalid Username or Password"
+
+                });
+
+            }
+
+            res.json({
+
+                success:true,
+
+                message:"Login Successful"
 
             });
 
