@@ -6,12 +6,18 @@ const path = require("path");
 const app = express();
 const PORT = 3000;
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Serve Frontend
-app.use(express.static(path.join(__dirname, "../frontend")));
+// HOME PAGE FIRST
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/login.html"));
+});
+
+// Static files
+app.use(express.static(path.join(__dirname, "../frontend"), {
+    index: false
+}));
 
 // Connect to SQLite Database
 const db = new sqlite3.Database(
@@ -121,9 +127,9 @@ db.get("SELECT * FROM admin", (err, row) => {
 // HOME
 // ======================
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/index.html"));
-});
+// app.get("/", (req, res) => {
+//     res.sendFile(path.join(__dirname, "../frontend/login.html"));
+// });
 
 // ======================
 // BOOK APIs
