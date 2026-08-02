@@ -169,30 +169,77 @@ app.delete("/books/:id", (req, res) => {
 // ======================
 
 // Get students
-app.get("/students", (req, res) => {
-  db.all("SELECT * FROM students", [], (err, rows) => {
-    if (err) return res.status(500).json(err);
-    res.json(rows);
-  });
+app.get("/students",(req,res)=>{
+
+    db.all(
+
+        "SELECT * FROM students",
+
+        [],
+
+        (err,rows)=>{
+
+            if(err){
+
+                return res.status(500).json(err);
+
+            }
+
+            res.json(rows);
+
+        }
+
+    );
+
 });
 
 // Add student
 app.post("/students", (req, res) => {
-  const { name, email, phone } = req.body;
 
-  db.run(
-    "INSERT INTO students(name,email,phone) VALUES(?,?,?)",
-    [name, email, phone],
-    function (err) {
-      if (err) return res.status(500).json(err);
+    const {
+        name,
+        email,
+        phone,
+        address,
+        course,
+        semester
+    } = req.body;
 
-      res.json({
-        success: true,
-        message: "Student Added Successfully",
-        id: this.lastID,
-      });
-    }
-  );
+    db.run(
+
+        `INSERT INTO students
+        (name,email,phone,address,course,semester)
+        VALUES(?,?,?,?,?,?)`,
+
+        [
+            name,
+            email,
+            phone,
+            address,
+            course,
+            semester
+        ],
+
+        function(err){
+
+            if(err){
+
+                return res.status(500).json(err);
+
+            }
+
+            res.json({
+
+                success:true,
+
+                message:"Student Added Successfully"
+
+            });
+
+        }
+
+    );
+
 });
 
 // Delete student

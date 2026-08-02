@@ -28,7 +28,10 @@ CREATE TABLE students (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     email TEXT UNIQUE,
-    phone TEXT
+    phone TEXT,
+    address TEXT,
+    course TEXT,
+    semester TEXT
 );
 
 -- ==========================================
