@@ -239,3 +239,55 @@ form h2{
 }
 
 }
+
+/* ==========================
+LOGIN OPTIONS
+========================== */
+
+.login-options{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+    font-size:15px;
+
+}
+
+.login-options label{
+
+    color:#555;
+
+    cursor:pointer;
+
+}
+
+.login-options input{
+
+    margin-right:8px;
+
+}
+
+.login-options a{
+
+    text-decoration:none;
+
+    color:#2563eb;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.login-options a:hover{
+
+    color:#1e3a8a;
+
+    text-decoration:underline;
+
+}
