@@ -1,3 +1,7 @@
+const nodemailer = require("nodemailer");
+const bcrypt = require("bcrypt");
+require("dotenv").config();
+
 const express = require("express");
 const sqlite3 = require("sqlite3").verbose();
 const cors = require("cors");
@@ -97,6 +101,8 @@ CREATE TABLE IF NOT EXISTS admin (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
 
     username TEXT UNIQUE NOT NULL,
+
+    email TEXT UNIQUE NOT NULL,
 
     password TEXT NOT NULL
 
@@ -545,6 +551,50 @@ app.post("/login", (req, res) => {
 
 });
 
+
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+    }
+});
+
+app.get("/test-email", async (req, res) => {
+
+    try {
+
+        await transporter.sendMail({
+
+            from: process.env.EMAIL_USER,
+
+            to: "biseshghimire243@gmail.com",
+
+            subject: "Library Management System - Test Email",
+
+            html: `
+                <h2>🎉 Email Test Successful</h2>
+
+                <p>Your Gmail SMTP is working correctly.</p>
+
+                <p>You are now ready to build the OTP system.</p>
+            `
+
+        });
+
+        res.send("✅ Email Sent Successfully.");
+
+    }
+
+    catch (err) {
+
+        console.log(err);
+
+        res.send(err.message);
+
+    }
+
+});
 
 app.listen(PORT, () => {
   console.log(`🚀 Server Running at http://localhost:${PORT}`);

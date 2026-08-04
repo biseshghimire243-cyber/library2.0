@@ -136,3 +136,4 @@ VALUES
 INSERT INTO issued_books (student_id, book_id, issue_date, status)
 VALUES
 (1, 1, '2026-08-02', 'Issued');
+
