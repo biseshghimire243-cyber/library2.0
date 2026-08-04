@@ -55,7 +55,6 @@ function initCheckoutForm() {
 
   if (checkoutForm) {
     checkoutForm.addEventListener("submit", (e) => {
-      // Prevents page refresh
       e.preventDefault();
 
       const cartCount = parseInt(localStorage.getItem("cartCount")) || 0;
@@ -65,10 +64,17 @@ function initCheckoutForm() {
         return;
       }
 
-      // Clear cart count for fresh session
-      localStorage.setItem("cartCount", "0");
+      // Save customer info to localStorage to display on order-success page if needed
+      const customerData = {
+        name: document.getElementById("custName").value,
+        phone: document.getElementById("custPhone").value,
+        address: document.getElementById("custAddress").value,
+        payment: document.querySelector('input[name="payment"]:checked').value
+      };
+      localStorage.setItem("latestOrder", JSON.stringify(customerData));
 
-      // Redirect to the success page directly
+      // Reset cart and redirect
+      localStorage.setItem("cartCount", "0");
       window.location.href = "order-success.html";
     });
   }
