@@ -3,351 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Gallery | Library Management System</title>
-
+    <title>Book Gallery | Sushma Library</title>
     <link rel="stylesheet" href="css/gallery.css">
-
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
 
-<!-- ==========================
-        NAVBAR
-=========================== -->
-
-<nav>
-
+<nav class="navbar">
     <div class="logo">
-
-        <i class="fa-solid fa-book"></i>
-
-        LibraryMS
-
+        <i class="fa-solid fa-book-open-reader"></i>
+        <span>LibraryMS</span>
     </div>
-
-    <ul>
-
+    <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-
         <li><a href="books.html">Books</a></li>
-
         <li><a href="students.html">Students</a></li>
-
         <li><a href="issue.html">Issue / Return</a></li>
-
         <li><a href="gallery.html" class="active">Gallery</a></li>
-
         <li><a href="about.html">About</a></li>
-
         <li><a href="contact.html">Contact</a></li>
-
     </ul>
-
 </nav>
 
-<!-- ==========================
-        HERO
-=========================== -->
-
 <section class="gallery-hero">
-
-    <h1>📚 Book Gallery</h1>
-
-    <p>
-
-        Explore our collection of books from different categories.
-
-        Click <strong>View Details</strong> to learn more.
-
-    </p>
-
+    <h1>Discover Your Next Read</h1>
+    <p>Explore our curated collection. Search by title, filter by category, or click any book for details.</p>
+    
+    <div class="search-container">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Search title, author, or category...">
+    </div>
 </section>
 
-<!-- ==========================
-        SEARCH
-=========================== -->
+<div class="category-wrapper">
+    <div class="category-bar">
+        <button class="cat-btn active" data-category="all">All Books</button>
+        <button class="cat-btn" data-category="Programming">Programming</button>
+        <button class="cat-btn" data-category="Novel">Novel</button>
+        <button class="cat-btn" data-category="Finance">Finance</button>
+        <button class="cat-btn" data-category="Self Help">Self Help</button>
+        <button class="cat-btn" data-category="Productivity">Productivity</button>
+    </div>
+</div>
 
-<section class="search-section">
+<main class="gallery-container">
+    <div class="gallery-grid" id="galleryGrid">
+        
+        <div class="book-card" data-category="Self Help" data-title="Atomic Habits" data-author="James Clear" data-rating="4.9" data-desc="An easy and proven way to build good habits and break bad ones through tiny daily changes." data-img="https://images-na.ssl-images-amazon.com/images/I/91bYsX41DVL.jpg">
+            <div class="card-img-wrapper">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/91bYsX41DVL.jpg" alt="Atomic Habits">
+                <span class="badge">Self Help</span>
+            </div>
+            <div class="card-body">
+                <h3>Atomic Habits</h3>
+                <p class="author"><i class="fa-regular fa-user"></i> James Clear</p>
+                <div class="card-footer">
+                    <span class="rating"><i class="fa-solid fa-star"></i> 4.9</span>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+        </div>
 
-    <div class="search-box">
+        <div class="book-card" data-category="Finance" data-title="Rich Dad Poor Dad" data-author="Robert Kiyosaki" data-rating="4.8" data-desc="What the rich teach their kids about money that the poor and middle class do not!" data-img="https://m.media-amazon.com/images/I/81bsw6fnUiL.jpg">
+            <div class="card-img-wrapper">
+                <img src="https://m.media-amazon.com/images/I/81bsw6fnUiL.jpg" alt="Rich Dad Poor Dad">
+                <span class="badge">Finance</span>
+            </div>
+            <div class="card-body">
+                <h3>Rich Dad Poor Dad</h3>
+                <p class="author"><i class="fa-regular fa-user"></i> Robert Kiyosaki</p>
+                <div class="card-footer">
+                    <span class="rating"><i class="fa-solid fa-star"></i> 4.8</span>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+        </div>
 
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <div class="book-card" data-category="Novel" data-title="The Alchemist" data-author="Paulo Coelho" data-rating="4.7" data-desc="A magical story about following your dreams and listening to your heart." data-img="https://m.media-amazon.com/images/I/71aFt4+OTOL.jpg">
+            <div class="card-img-wrapper">
+                <img src="https://m.media-amazon.com/images/I/71aFt4+OTOL.jpg" alt="The Alchemist">
+                <span class="badge">Novel</span>
+            </div>
+            <div class="card-body">
+                <h3>The Alchemist</h3>
+                <p class="author"><i class="fa-regular fa-user"></i> Paulo Coelho</p>
+                <div class="card-footer">
+                    <span class="rating"><i class="fa-solid fa-star"></i> 4.7</span>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+        </div>
 
-        <input
-        type="text"
-        placeholder="Search Book, Author or Category">
+        <div class="book-card" data-category="Programming" data-title="Python Crash Course" data-author="Eric Matthes" data-rating="4.9" data-desc="A hands-on, project-based introduction to programming with Python." data-img="https://m.media-amazon.com/images/I/81eB+7+CkUL.jpg">
+            <div class="card-img-wrapper">
+                <img src="https://m.media-amazon.com/images/I/81eB+7+CkUL.jpg" alt="Python Crash Course">
+                <span class="badge">Programming</span>
+            </div>
+            <div class="card-body">
+                <h3>Python Crash Course</h3>
+                <p class="author"><i class="fa-regular fa-user"></i> Eric Matthes</p>
+                <div class="card-footer">
+                    <span class="rating"><i class="fa-solid fa-star"></i> 4.9</span>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="book-card" data-category="Programming" data-title="Clean Code" data-author="Robert C. Martin" data-rating="4.9" data-desc="A handbook of agile software craftsmanship for writing cleaner, more maintainable code." data-img="https://m.media-amazon.com/images/I/81-QB7nDh4L.jpg">
+            <div class="card-img-wrapper">
+                <img src="https://m.media-amazon.com/images/I/81-QB7nDh4L.jpg" alt="Clean Code">
+                <span class="badge">Programming</span>
+            </div>
+            <div class="card-body">
+                <h3>Clean Code</h3>
+                <p class="author"><i class="fa-regular fa-user"></i> Robert C. Martin</p>
+                <div class="card-footer">
+                    <span class="rating"><i class="fa-solid fa-star"></i> 4.9</span>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="book-card" data-category="Productivity" data-title="Deep Work" data-author="Cal Newport" data-rating="4.8" data-desc="Rules for focused success in a distracted world." data-img="https://m.media-amazon.com/images/I/81WcnNQ-TBL.jpg">
+            <div class="card-img-wrapper">
+                <img src="https://m.media-amazon.com/images/I/81WcnNQ-TBL.jpg" alt="Deep Work">
+                <span class="badge">Productivity</span>
+            </div>
+            <div class="card-body">
+                <h3>Deep Work</h3>
+                <p class="author"><i class="fa-regular fa-user"></i> Cal Newport</p>
+                <div class="card-footer">
+                    <span class="rating"><i class="fa-solid fa-star"></i> 4.8</span>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="book-card" data-category="Finance" data-title="The Psychology of Money" data-author="Morgan Housel" data-rating="4.9" data-desc="Timeless lessons on wealth, greed, and happiness." data-img="https://m.media-amazon.com/images/I/71g2ednj0JL.jpg">
+            <div class="card-img-wrapper">
+                <img src="https://m.media-amazon.com/images/I/71g2ednj0JL.jpg" alt="The Psychology of Money">
+                <span class="badge">Finance</span>
+            </div>
+            <div class="card-body">
+                <h3>The Psychology of Money</h3>
+                <p class="author"><i class="fa-regular fa-user"></i> Morgan Housel</p>
+                <div class="card-footer">
+                    <span class="rating"><i class="fa-solid fa-star"></i> 4.9</span>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+        </div>
 
     </div>
-
-</section>
-
-<!-- ==========================
-        CATEGORY
-=========================== -->
-
-<section class="category">
-
-<button>All</button>
-
-<button>Programming</button>
-
-<button>Novel</button>
-
-<button>Finance</button>
-
-<button>Self Help</button>
-
-<button>History</button>
-
-<button>Science</button>
-
-</section>
-
-<!-- ==========================
-        BOOKS
-=========================== -->
-
-<section class="gallery">
-
-<div class="book-card">
-
-<img src="https://images-na.ssl-images-amazon.com/images/I/91bYsX41DVL.jpg">
-
-<h3>Atomic Habits</h3>
-
-<p><i class="fa-solid fa-user"></i> James Clear</p>
-
-<p><i class="fa-solid fa-book"></i> Self Help</p>
-
-<p class="rating">
-
-⭐⭐⭐⭐⭐ 4.9
-
-</p>
-
-<button class="details-btn">
-
-View Details
-
-</button>
-
-</div>
-
-<div class="book-card">
-
-<img src="https://m.media-amazon.com/images/I/81bsw6fnUiL.jpg">
-
-<h3>Rich Dad Poor Dad</h3>
-
-<p><i class="fa-solid fa-user"></i> Robert Kiyosaki</p>
-
-<p><i class="fa-solid fa-book"></i> Finance</p>
-
-<p class="rating">
-
-⭐⭐⭐⭐⭐ 4.8
-
-</p>
-
-<button class="details-btn">
-
-View Details
-
-</button>
-
-</div>
-
-<div class="book-card">
-
-<img src="https://m.media-amazon.com/images/I/71aFt4+OTOL.jpg">
-
-<h3>The Alchemist</h3>
-
-<p><i class="fa-solid fa-user"></i> Paulo Coelho</p>
-
-<p><i class="fa-solid fa-book"></i> Novel</p>
-
-<p class="rating">
-
-⭐⭐⭐⭐⭐ 4.7
-
-</p>
-
-<button class="details-btn">
-
-View Details
-
-</button>
-
-</div>
-
-<div class="book-card">
-
-<img src="https://m.media-amazon.com/images/I/81eB+7+CkUL.jpg">
-
-<h3>Python Crash Course</h3>
-
-<p><i class="fa-solid fa-user"></i> Eric Matthes</p>
-
-<p><i class="fa-solid fa-book"></i> Programming</p>
-
-<p class="rating">
-
-⭐⭐⭐⭐⭐ 4.9
-
-</p>
-
-<button class="details-btn">
-
-View Details
-
-</button>
-
-</div>
-
-<div class="book-card">
-
-<img src="https://m.media-amazon.com/images/I/71UypkUjStL.jpg">
-
-<h3>Think and Grow Rich</h3>
-
-<p><i class="fa-solid fa-user"></i> Napoleon Hill</p>
-
-<p><i class="fa-solid fa-book"></i> Motivation</p>
-
-<p class="rating">
-
-⭐⭐⭐⭐⭐ 4.8
-
-</p>
-
-<button class="details-btn">
-
-View Details
-
-</button>
-
-</div>
-
-<div class="book-card">
-
-<img src="https://m.media-amazon.com/images/I/81-QB7nDh4L.jpg">
-
-<h3>Clean Code</h3>
-
-<p><i class="fa-solid fa-user"></i> Robert C. Martin</p>
-
-<p><i class="fa-solid fa-book"></i> Programming</p>
-
-<p class="rating">
-
-⭐⭐⭐⭐⭐ 4.9
-
-</p>
-
-<button class="details-btn">
-
-View Details
-
-</button>
-
-</div>
-
-<div class="book-card">
-
-<img src="https://m.media-amazon.com/images/I/81WcnNQ-TBL.jpg">
-
-<h3>Deep Work</h3>
-
-<p><i class="fa-solid fa-user"></i> Cal Newport</p>
-
-<p><i class="fa-solid fa-book"></i> Productivity</p>
-
-<p class="rating">
-
-⭐⭐⭐⭐⭐ 4.8
-
-</p>
-
-<button class="details-btn">
-
-View Details
-
-</button>
-
-</div>
-
-<div class="book-card">
-
-<img src="https://m.media-amazon.com/images/I/71g2ednj0JL.jpg">
-
-<h3>The Psychology of Money</h3>
-
-<p><i class="fa-solid fa-user"></i> Morgan Housel</p>
-
-<p><i class="fa-solid fa-book"></i> Finance</p>
-
-<p class="rating">
-
-⭐⭐⭐⭐⭐ 4.9
-
-</p>
-
-<button class="details-btn">
-
-View Details
-
-</button>
-
-</div>
-
-</section>
-
-<!-- ==========================
-        BOOK DETAILS MODAL
-========================== -->
+</main>
 
 <div id="bookModal" class="modal">
-
     <div class="modal-content">
-
-        <span class="close">&times;</span>
-
-        <img id="modalImage" src="">
-
-        <h2 id="modalTitle"></h2>
-
-        <p><strong>Author:</strong> <span id="modalAuthor"></span></p>
-
-        <p><strong>Category:</strong> <span id="modalCategory"></span></p>
-
-        <p><strong>Rating:</strong> <span id="modalRating"></span></p>
-
-        <p><strong>Description:</strong></p>
-
-        <p id="modalDescription"></p>
-
+        <button class="close-btn" id="closeModal">&times;</button>
+        <div class="modal-grid">
+            <img id="modalImg" src="" alt="Book Cover">
+            <div class="modal-info">
+                <span id="modalBadge" class="badge">Category</span>
+                <h2 id="modalTitle">Book Title</h2>
+                <p class="modal-author"><i class="fa-solid fa-pen-nib"></i> <span id="modalAuthor">Author</span></p>
+                <p class="modal-rating"><i class="fa-solid fa-star"></i> <span id="modalRating">4.9</span> / 5.0</p>
+                <hr>
+                <p id="modalDesc">Book description goes here...</p>
+            </div>
+        </div>
     </div>
-
 </div>
 
-<!-- ==========================
-        FOOTER
-=========================== -->
-
 <footer>
-
-<p>
-
-© 2026 Library Management System |
-Developed by Bishesh Ghimire
-
-</p>
-
+    <p>© 2026 Library Management System | Developed by Bishesh Ghimire</p>
 </footer>
 
 <script src="js/gallery.js"></script>
-
 </body>
 </html>
