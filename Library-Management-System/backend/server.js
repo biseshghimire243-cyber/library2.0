@@ -568,6 +568,8 @@ const transporter = nodemailer.createTransport({
     }
 });
 
+const otpStore = {};
+
 app.get("/test-email", async (req, res) => {
 
     try {
@@ -603,6 +605,86 @@ app.get("/test-email", async (req, res) => {
     }
 
 });
+
+// ===============================
+// FORGOT PASSWORD
+// ===============================
+
+app.post("/forgot-password", (req, res) => {
+
+    const { email } = req.body;
+
+    db.get(
+        "SELECT * FROM admin WHERE email=?",
+        [email],
+        async (err, user) => {
+
+            if (err) {
+                return res.status(500).json({
+                    success: false,
+                    message: err.message
+                });
+            }
+
+            if (!user) {
+                return res.json({
+                    success: false,
+                    message: "Email not found."
+                });
+            }
+
+            const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
+            otpStore[email] = otp;
+
+            try {
+
+                await transporter.sendMail({
+
+                    from: process.env.EMAIL_USER,
+
+                    to: email,
+
+                    subject: "Library Management System OTP",
+
+                    html: `
+                        <h2>Password Reset OTP</h2>
+                        <h1>${otp}</h1>
+                        <p>This OTP is valid for 5 minutes.</p>
+                    `
+
+                });
+
+                res.json({
+
+                    success: true,
+
+                    message: "OTP sent successfully."
+
+                });
+
+            } catch (error) {
+
+                console.log(error);
+
+                res.status(500).json({
+
+                    success: false,
+
+                    message: "Unable to send OTP."
+
+                });
+
+            }
+
+        }
+
+    );
+
+});
+
+
+
 
 app.listen(PORT, () => {
   console.log(`🚀 Server Running at http://localhost:${PORT}`);

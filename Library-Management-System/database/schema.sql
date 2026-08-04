@@ -69,20 +69,18 @@ CREATE TABLE contacts (
 );
 
 CREATE TABLE admin (
-
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-
     username TEXT UNIQUE NOT NULL,
-
+    email TEXT UNIQUE NOT NULL,
     password TEXT NOT NULL
-
 );
 
-INSERT INTO admin (username,password)
-
-VALUES
-
-('admin','admin123');
+INSERT INTO admin (username, email, password)
+VALUES (
+    'admin',
+    'biseshghimire243@gmail.com',
+    'admin123'
+);
 -- ==========================================
 -- Sample Books
 -- ==========================================
