@@ -112,15 +112,23 @@ CREATE TABLE IF NOT EXISTS admin (
 
 db.get("SELECT * FROM admin", (err, row) => {
 
-    if(!row){
+    if (!row) {
 
         db.run(
 
-            `INSERT INTO admin(username,password)
+            `INSERT INTO admin(username,email,password)
 
-             VALUES(?,?)`,
+             VALUES(?,?,?)`,
 
-            ["admin","admin123"]
+            [
+
+                "admin",
+
+                "biseshghimire243@gmail.com",
+
+                "admin123"
+
+            ]
 
         );
 
@@ -503,13 +511,13 @@ app.post("/contact", (req, res) => {
 
 app.post("/login", (req, res) => {
 
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
     db.get(
 
-        "SELECT * FROM admin WHERE username=? AND password=?",
+        "SELECT * FROM admin WHERE email=? AND password=?",
 
-        [username, password],
+        [email, password],
 
         (err, user) => {
 
@@ -531,7 +539,7 @@ app.post("/login", (req, res) => {
 
                     success:false,
 
-                    message:"Invalid Username or Password"
+                    message:"Invalid Email or Password"
 
                 });
 
