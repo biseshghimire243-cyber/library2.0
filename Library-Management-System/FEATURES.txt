@@ -1,0 +1,14 @@
+LIBRARY MANAGEMENT SYSTEM FEATURES
+
+✔ Secure Admin Login
+✔ Forgot Password with Email OTP
+✔ Dashboard Statistics
+✔ Book Management
+✔ Student Management
+✔ Issue Books
+✔ Return Books
+✔ Contact Form
+✔ SQLite Database
+✔ REST API
+✔ Responsive Design
+✔ Modern UI
