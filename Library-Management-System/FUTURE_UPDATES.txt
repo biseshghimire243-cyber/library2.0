@@ -1,0 +1,13 @@
+Future Improvements
+
+- QR Code Book Issue
+- Barcode Scanner
+- Fine Calculation
+- Student Login
+- Admin Roles
+- PDF Reports
+- Email Notifications
+- Dark Mode
+- Book Reservation
+- Cloud Database
+- Mobile App
