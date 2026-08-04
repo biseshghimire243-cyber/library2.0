@@ -139,7 +139,7 @@ body {
     border-color: var(--accent);
 }
 
-/* GALLERY GRID */
+/* GALLERY GRID & ALIGNED CARDS */
 .gallery-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -160,7 +160,20 @@ body {
     border: 1px solid #334155;
     display: flex;
     flex-direction: column;
+    height: 100%;
     transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .book-card:hover {
@@ -170,7 +183,8 @@ body {
 
 .card-img-wrapper {
     position: relative;
-    height: 280px;
+    height: 260px;
+    width: 100%;
     overflow: hidden;
     background: #0f172a;
 }
@@ -179,6 +193,12 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+}
+
+.book-card:hover .card-img-wrapper img {
+    transform: scale(1.05);
 }
 
 .badge {
@@ -193,8 +213,10 @@ body {
     padding: 0.25rem 0.6rem;
     border-radius: 12px;
     backdrop-filter: blur(4px);
+    z-index: 2;
 }
 
+/* CARD CONTENT UNIFORMITY */
 .card-body {
     padding: 1.2rem;
     display: flex;
@@ -205,12 +227,20 @@ body {
 .card-body h3 {
     font-size: 1.1rem;
     margin-bottom: 0.4rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .author {
     color: var(--text-muted);
     font-size: 0.85rem;
     margin-bottom: 1.2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .card-footer {
@@ -218,6 +248,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 0.5rem;
 }
 
 .rating {
@@ -226,11 +257,15 @@ body {
     font-size: 0.9rem;
 }
 
+.card-footer .rating i {
+    text-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+}
+
 .view-btn {
     background: var(--accent);
     color: white;
     border: none;
-    padding: 0.4rem 0.8rem;
+    padding: 0.45rem 0.9rem;
     border-radius: 6px;
     font-size: 0.85rem;
     cursor: pointer;
@@ -241,6 +276,15 @@ body {
 .view-btn:hover {
     background: var(--accent-hover);
 }
+
+/* DYNAMIC CATEGORY BADGES */
+.book-card[data-category="Programming"] .badge { color: #38bdf8; border-color: #38bdf8; }
+.book-card[data-category="Finance"] .badge { color: #4ade80; border-color: #4ade80; }
+.book-card[data-category="Novel"] .badge { color: #f472b6; border-color: #f472b6; }
+.book-card[data-category="Self Help"] .badge { color: #fbbf24; border-color: #fbbf24; }
+.book-card[data-category="Psychology"] .badge { color: #c084fc; border-color: #c084fc; }
+.book-card[data-category="History"] .badge { color: #fb923c; border-color: #fb923c; }
+.book-card[data-category="Productivity"] .badge { color: #2dd4bf; border-color: #2dd4bf; }
 
 /* MODAL */
 .modal {
@@ -284,6 +328,7 @@ body {
 .modal-grid img {
     width: 100%;
     border-radius: 8px;
+    object-fit: cover;
 }
 
 .modal-info h2 {
