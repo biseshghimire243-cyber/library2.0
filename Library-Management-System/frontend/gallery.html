@@ -375,20 +375,117 @@
 </main>
 
 <div id="bookModal" class="modal">
+
     <div class="modal-content">
+
         <button class="close-btn" id="closeModal">&times;</button>
+
         <div class="modal-grid">
-            <img id="modalImg" src="" alt="Book Cover">
-            <div class="modal-info">
-                <span id="modalBadge" class="badge">Category</span>
-                <h2 id="modalTitle">Book Title</h2>
-                <p class="modal-author"><i class="fa-solid fa-pen-nib"></i> <span id="modalAuthor">Author</span></p>
-                <p class="modal-rating"><i class="fa-solid fa-star"></i> <span id="modalRating">4.9</span> / 5.0</p>
-                <hr>
-                <p id="modalDesc">Book description goes here...</p>
+
+            <div class="modal-image">
+
+                <img id="modalImg" src="" alt="Book Cover">
+
             </div>
+
+            <div class="modal-info">
+
+                <span id="modalBadge" class="badge"></span>
+
+                <h1 id="modalTitle"></h1>
+
+                <h3 id="modalAuthor"></h3>
+
+                <div class="stars">
+
+                    ⭐⭐⭐⭐⭐
+
+                    <span id="modalRating"></span>
+
+                </div>
+
+                <table class="book-details">
+
+                    <tr>
+
+                        <td><strong>Publisher</strong></td>
+
+                        <td id="modalPublisher"></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td><strong>Published</strong></td>
+
+                        <td id="modalYear"></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td><strong>Language</strong></td>
+
+                        <td id="modalLanguage"></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td><strong>Pages</strong></td>
+
+                        <td id="modalPages"></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td><strong>ISBN</strong></td>
+
+                        <td id="modalISBN"></td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td><strong>Available Copies</strong></td>
+
+                        <td id="modalAvailable"></td>
+
+                    </tr>
+
+                </table>
+
+                <h3>Description</h3>
+
+                <p id="modalDesc"></p>
+
+                <div class="modal-buttons">
+
+                    <button class="borrow">
+
+                        <i class="fa-solid fa-book"></i>
+
+                        Borrow Book
+
+                    </button>
+
+                    <button class="fav">
+
+                        <i class="fa-solid fa-heart"></i>
+
+                        Add Favorite
+
+                    </button>
+
+                </div>
+
+            </div>
+
         </div>
+
     </div>
+
 </div>
 
 <footer>
