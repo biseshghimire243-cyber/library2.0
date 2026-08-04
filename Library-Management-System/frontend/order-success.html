@@ -41,25 +41,46 @@
       <h1 style="color: #0f172a; font-size: 1.8rem; margin-bottom: 0.5rem;">Thank You for Your Order!</h1>
       <p style="color: #64748b; font-size: 1rem; margin-bottom: 1.5rem;">Your payment was successful and your books are on their way.</p>
 
-      <!-- Order Details Card -->
+      <!-- Customer & Order Details Card -->
       <div style="background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 1.25rem; text-align: left; margin-bottom: 2rem;">
+        
         <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-          <span style="color: #64748b;">Order Number:</span>
+          <span style="color: #64748b;">Order Reference:</span>
           <strong id="orderId" style="color: #0f172a;">#LMS-89421</strong>
         </div>
+
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+          <span style="color: #64748b;">Customer Name:</span>
+          <strong id="custNameDisplay" style="color: #0f172a;">-</strong>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+          <span style="color: #64748b;">Phone Number:</span>
+          <span id="custPhoneDisplay" style="color: #0f172a; font-weight: 600;">-</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+          <span style="color: #64748b;">Delivery Address:</span>
+          <span id="custAddressDisplay" style="color: #0f172a; font-weight: 600; text-align: right; max-width: 60%;">-</span>
+        </div>
+
         <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
           <span style="color: #64748b;">Payment Method:</span>
-          <span id="paymentType" style="color: #0f172a; font-weight: 600;">eSewa Mobile Wallet</span>
+          <span id="paymentTypeDisplay" style="color: #0f172a; font-weight: 600; text-transform: uppercase;">-</span>
         </div>
+
         <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
           <span style="color: #64748b;">Estimated Delivery:</span>
           <span style="color: #0f172a; font-weight: 600;">2-3 Business Days</span>
         </div>
+
         <hr style="margin: 0.75rem 0; border: none; border-top: 1px solid #e2e8f0;">
+
         <div style="display: flex; justify-content: space-between;">
-          <strong style="color: #0f172a;">Total Paid:</strong>
-          <strong id="paidAmount" style="color: #0284c7; font-size: 1.1rem;">NPR 2,500</strong>
+          <strong style="color: #0f172a;">Status:</strong>
+          <strong style="color: #16a34a; font-size: 1rem;">Confirmed & Paid</strong>
         </div>
+
       </div>
 
       <!-- Action Buttons -->
@@ -80,11 +101,22 @@
     <p>© 2026 Library Management System | Developed by Bishesh Ghimire</p>
   </footer>
 
+  <!-- Script to load dynamic localStorage data -->
   <script>
-    // Dynamically assign order ID on page load
     document.addEventListener("DOMContentLoaded", () => {
+      // Generate unique order ID
       const randomOrderNum = Math.floor(10000 + Math.random() * 90000);
       document.getElementById("orderId").textContent = `#LMS-${randomOrderNum}`;
+
+      // Retrieve customer data from localStorage saved by cart.js
+      const savedOrder = JSON.parse(localStorage.getItem("latestOrder"));
+
+      if (savedOrder) {
+        document.getElementById("custNameDisplay").textContent = savedOrder.name || "Guest";
+        document.getElementById("custPhoneDisplay").textContent = savedOrder.phone || "N/A";
+        document.getElementById("custAddressDisplay").textContent = savedOrder.address || "N/A";
+        document.getElementById("paymentTypeDisplay").textContent = savedOrder.payment || "Cash on Delivery";
+      }
     });
   </script>
 
