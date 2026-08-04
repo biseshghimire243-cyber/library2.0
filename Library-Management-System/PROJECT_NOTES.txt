@@ -1,0 +1,80 @@
+=========================================
+LIBRARY MANAGEMENT SYSTEM
+Project Notes
+=========================================
+
+Developer:
+Bishesh Ghimire
+
+Technology Stack:
+-------------------------
+Frontend:
+- HTML5
+- CSS3
+- JavaScript
+
+Backend:
+- Node.js
+- Express.js
+
+Database:
+- SQLite3
+
+Libraries:
+- sqlite3
+- express
+- cors
+- nodemailer
+- dotenv
+
+=========================================
+Main Modules
+=========================================
+
+1. Login System
+- Admin Login
+- Forgot Password
+- Email OTP Verification
+- Password Reset
+
+2. Dashboard
+- Total Books
+- Total Students
+- Issued Books
+
+3. Book Management
+- Add Book
+- Update Book
+- Delete Book
+- Search Book
+
+4. Student Management
+- Add Student
+- Update Student
+- Delete Student
+- Search Student
+
+5. Issue & Return
+- Issue Books
+- Return Books
+- View Issued Books
+
+6. Contact
+- Send Message
+- Save Messages to Database
+
+=========================================
+Project Folder Structure
+=========================================
+
+frontend/
+backend/
+database/
+README.md
+
+=========================================
+Author
+=========================================
+
+Name : Bishesh Ghimire
+Year : 2026
