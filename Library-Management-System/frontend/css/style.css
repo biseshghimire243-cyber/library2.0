@@ -973,3 +973,62 @@ color:#f59e0b;
 
 }
 
+
+.arrival{
+
+padding:80px 8%;
+
+}
+
+.arrival h2{
+
+text-align:center;
+margin-bottom:50px;
+
+}
+
+.arrival-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+
+}
+
+.arrival-card{
+
+background:#2563eb;
+color:white;
+padding:30px;
+border-radius:15px;
+position:relative;
+
+}
+
+.new{
+
+position:absolute;
+top:15px;
+right:15px;
+background:#facc15;
+color:black;
+padding:5px 10px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
+
+}
+
+.arrival-card h3{
+
+margin-top:20px;
+
+}
+
+.arrival-card p{
+
+margin-top:10px;
+opacity:.8;
+
+}
+
