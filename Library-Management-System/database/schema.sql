@@ -135,3 +135,68 @@ INSERT INTO issued_books (student_id, book_id, issue_date, status)
 VALUES
 (1, 1, '2026-08-02', 'Issued');
 
+
+
+CREATE TABLE book_reviews (
+
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+    book_title TEXT NOT NULL,
+
+    reviewer_name TEXT NOT NULL,
+
+    rating INTEGER NOT NULL,
+
+    review TEXT NOT NULL,
+
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+
+);
+
+INSERT INTO book_reviews
+(book_title, reviewer_name, rating, review)
+
+VALUES
+
+(
+'Atomic Habits',
+'Bishesh Ghimire',
+5,
+'Excellent book. It completely changed my daily habits.'
+),
+
+(
+'Atomic Habits',
+'John Doe',
+4,
+'Very practical and easy to understand.'
+),
+
+(
+'Rich Dad Poor Dad',
+'Emma Watson',
+5,
+'One of the best finance books ever written.'
+),
+
+(
+'Python Crash Course',
+'David Miller',
+5,
+'Perfect for beginners learning Python.'
+),
+
+(
+'The Alchemist',
+'Sophia',
+5,
+'Beautiful story with an inspiring message.'
+),
+
+(
+'Clean Code',
+'Robert',
+5,
+'Every programmer should read this book.'
+);
+
