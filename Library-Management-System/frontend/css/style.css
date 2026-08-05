@@ -1333,3 +1333,137 @@ line-height:1.7;
 font-size:15px;
 
 }
+
+/* ================= OUR TEAM ================= */
+
+.team{
+
+padding:80px 8%;
+
+background:white;
+
+text-align:center;
+
+}
+
+.team-container{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+
+margin-top:45px;
+
+}
+
+.team-card{
+
+background:#f8fafc;
+
+padding:35px 25px;
+
+border-radius:15px;
+
+transition:.3s;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.team-card:hover{
+
+transform:translateY(-10px);
+
+}
+
+.team-card img{
+
+width:120px;
+
+height:120px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:5px solid #2563eb;
+
+margin-bottom:20px;
+
+}
+
+.team-card h3{
+
+font-size:24px;
+
+color:#0f172a;
+
+margin-bottom:8px;
+
+}
+
+.team-card span{
+
+color:#2563eb;
+
+font-weight:600;
+
+display:block;
+
+margin-bottom:18px;
+
+}
+
+.team-card p{
+
+color:#475569;
+
+line-height:1.8;
+
+margin-bottom:20px;
+
+}
+
+.social{
+
+display:flex;
+
+justify-content:center;
+
+gap:18px;
+
+}
+
+.social i{
+
+width:42px;
+
+height:42px;
+
+background:#2563eb;
+
+color:white;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:50%;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.social i:hover{
+
+background:#1d4ed8;
+
+transform:scale(1.1);
+
+}
