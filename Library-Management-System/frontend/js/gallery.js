@@ -13,6 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalCategory = document.getElementById("modalBadge");
     const modalRating = document.getElementById("modalRating");
     const modalDesc = document.getElementById("modalDesc");
+    const reviewsList = document.getElementById("reviewsList");
+const reviewName = document.getElementById("reviewName");
+const reviewRating = document.getElementById("reviewRating");
+const reviewText = document.getElementById("reviewText");
+const submitReview = document.getElementById("submitReview");
+
+let currentBook = "";
 
     const modalPublisher = document.getElementById("modalPublisher");
     const modalYear = document.getElementById("modalYear");
@@ -291,6 +298,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             modal.style.display="flex";
 
+            currentBook = card.dataset.title;
+
+loadReviews(currentBook);
+
+modal.style.display = "flex";
+
         });
 
     });
@@ -314,5 +327,92 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
     });
+
+});
+
+// ===================================
+// LOAD REVIEWS
+// ===================================
+
+function loadReviews(book) {
+
+    const reviews = JSON.parse(localStorage.getItem(book)) || [];
+
+    reviewsList.innerHTML = "";
+
+    if (reviews.length === 0) {
+
+        reviewsList.innerHTML = `
+            <p style="text-align:center;color:gray;">
+                No reviews yet. Be the first to review this book!
+            </p>
+        `;
+
+        return;
+    }
+
+    reviews.reverse().forEach(review => {
+
+        reviewsList.innerHTML += `
+
+        <div class="review-card">
+
+            <h4>${review.name}</h4>
+
+            <div class="review-stars">
+                ${"⭐".repeat(review.rating)}
+            </div>
+
+            <p>${review.review}</p>
+
+            <small>${review.date}</small>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+
+// ===================================
+// SUBMIT REVIEW
+// ===================================
+
+submitReview.addEventListener("click", () => {
+
+    const name = reviewName.value.trim();
+    const rating = Number(reviewRating.value);
+    const review = reviewText.value.trim();
+
+    if (name === "" || review === "") {
+
+        alert("Please fill all fields.");
+
+        return;
+
+    }
+
+    const reviews = JSON.parse(localStorage.getItem(currentBook)) || [];
+
+    reviews.push({
+
+        name: name,
+        rating: rating,
+        review: review,
+        date: new Date().toLocaleDateString()
+
+    });
+
+    localStorage.setItem(currentBook, JSON.stringify(reviews));
+
+    reviewName.value = "";
+    reviewRating.value = "5";
+    reviewText.value = "";
+
+    loadReviews(currentBook);
+
+    alert("✅ Review Submitted Successfully!");
 
 });
