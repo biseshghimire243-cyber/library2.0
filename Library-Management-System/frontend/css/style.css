@@ -1032,3 +1032,40 @@ opacity:.8;
 
 }
 
+.statistics{
+
+background:#1e293b;
+color:white;
+padding:90px 8%;
+text-align:center;
+
+}
+
+.statistics h2{
+
+margin-bottom:60px;
+
+}
+
+.stats{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:40px;
+
+}
+
+.stats h1{
+
+font-size:55px;
+color:#3b82f6;
+
+}
+
+.stats p{
+
+margin-top:10px;
+font-size:18px;
+
+}
+
