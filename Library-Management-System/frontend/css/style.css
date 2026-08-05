@@ -901,3 +901,75 @@ footer{
 
 }
 
+/* ================= BEST SELLERS ================= */
+
+.best-sellers{
+
+padding:80px 8%;
+background:#f8fafc;
+text-align:center;
+
+}
+
+.best-sellers h2{
+
+font-size:38px;
+color:#1e293b;
+
+}
+
+.best-sellers p{
+
+color:#64748b;
+margin:15px auto 50px;
+max-width:650px;
+
+}
+
+.best-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+
+}
+
+.best-card{
+
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.4s;
+
+}
+
+.best-card:hover{
+
+transform:translateY(-10px);
+
+}
+
+.best-card img{
+
+width:100%;
+height:280px;
+object-fit:cover;
+
+}
+
+.best-card h3{
+
+padding:20px 15px 10px;
+
+}
+
+.best-card span{
+
+display:block;
+padding-bottom:20px;
+font-size:18px;
+color:#f59e0b;
+
+}
+
