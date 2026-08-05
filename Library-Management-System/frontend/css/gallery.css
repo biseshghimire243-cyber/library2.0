@@ -460,3 +460,20 @@ footer {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+
+.modal-content {
+    background: var(--bg-card);
+    width: 90%;
+    max-width: 480px; /* Reduced max-width from 600px */
+    border-radius: var(--radius);
+    padding: 1.25rem; /* Reduced padding from 2rem */
+    position: relative;
+    border: 1px solid var(--border-color);
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: 110px 1fr; /* Reduced image column from 140px */
+    gap: 1rem;
+}
